@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Amelie | Flower Lady</title><style>
+:root{--cream:#f8f1e7;--ivory:#fffaf3;--mocha:#6f4d37;--gold:#b78a54;--text:#4d3427}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;background:radial-gradient(circle at top,#fffaf3 0,#f4eadf 46%,#e9d8c7 100%);color:var(--text)}
+body{display:flex;align-items:center;justify-content:center;padding:18px}.shell{width:min(100%,720px);text-align:center}
+.cover{border:1px solid rgba(111,77,55,.22);background:rgba(255,250,243,.96);border-radius:28px;padding:38px 24px;box-shadow:0 20px 60px rgba(77,52,39,.18);cursor:pointer}
+.emoji{font-size:62px}.kicker{letter-spacing:.17em;text-transform:uppercase;font-size:13px;color:var(--gold)}h1{font-size:clamp(40px,8vw,68px);font-weight:500;margin:12px 0 6px}
+p{font-size:18px;line-height:1.5}.btn{border:0;border-radius:999px;padding:14px 24px;background:var(--mocha);color:#fff;font-size:16px;cursor:pointer}
+.invite{display:none;animation:fade .7s ease}.invite.show{display:block}.invite img{width:100%;height:auto;border-radius:24px;box-shadow:0 22px 65px rgba(77,52,39,.23)}
+.actions{padding:18px 0}.small{font-size:13px;opacity:.72;margin-top:12px}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;width:9px;height:14px;top:-20px;animation:fall 2.8s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
+</style></head>
+<body><div class="shell">
+<section class="cover" id="cover" onclick="openInvite()"><div class="emoji">🌸</div><div class="kicker">A special surprise is waiting</div><h1>Amelie</h1><p>Tap to open your special invitation from Uncle Danny & Auntie Z.</p><button class="btn">Open Invitation</button></section>
+<section class="invite" id="invite"><img src="amelie.jpg" alt="Amelie Flower Lady proposal"><div class="actions"><button class="btn" onclick="celebrate(event)">Yes, I’d love to! 🤎</button><div class="small">January 20, 2027</div></div></section>
+</div><div class="confetti" id="confetti"></div>
+<script>
+function openInvite(){document.getElementById('cover').style.display='none';document.getElementById('invite').classList.add('show');}
+function celebrate(e){e.stopPropagation();const b=document.getElementById('confetti');b.innerHTML='';for(let i=0;i<80;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'vw';p.style.animationDelay=Math.random()*.7+'s';p.style.background=['#b78a54','#6f4d37','#e7cba7','#fff'][Math.floor(Math.random()*4)];b.appendChild(p)}setTimeout(()=>b.innerHTML='',3600)}
+</script></body></html>
